@@ -43,7 +43,7 @@ password:this.state.password
 
 if(data.result == "success"){
   const cookies = new Cookies();
-  cookies.set('access_token' , data.access_token ,{path: '/' , secure: true,  httpOnly: false,sameSite: "none"})
+  cookies.set('access_token' , data.access_token ,{path: '/', Domain: 'https://urlshorterbackend.herokuapp.com', secure: true,  httpOnly: false,sameSite: "none"})
   this.props.history.push(`/dashboard`);  
 
 }
