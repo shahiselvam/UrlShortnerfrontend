@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link } from 'react-router-dom';
 import axios from 'axios';
-
+import Cookies from 'universal-cookie';
 
 const API_URL1 = 'https://url-shortner-backend-nodejs.herokuapp.com/login'
 class login extends React.Component{
@@ -42,8 +42,8 @@ password:this.state.password
 })
 
 if(data.result == "success"){
-
-
+  const cookies = new Cookies();
+  cookies.set('access_token' , data.access_token ,{path: '/' , secure: true,  httpOnly: false,sameSite: "none"})
   this.props.history.push(`/dashboard`);  
 
 }
