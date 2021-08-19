@@ -43,7 +43,7 @@ password:this.state.password
 
 if(data.result == "success"){
   const cookies = new Cookies();
-  cookies.set('access_token' , data.access_token ,{path: '/', expires: new Date(Date.now()+2592000), secure: true,  httpOnly: true,sameSite: "none"})
+  cookies.set('access_token' , data.access_token ,{path: '/', expires: new Date(Date.now()+2592000), secure: true,  httpOnly: false ,sameSite: "none"})
   this.props.history.push(`/dashboard`);  
 
 }
